@@ -13,8 +13,7 @@ app.use(express.static(__dirname + '/../client/public'));
 app.use(bodyParser.json());
 
 app.get('/:year', (req, res) => {
-  console.log('req.params.year:', req.params.year);
-  db.formatYear(req.params.year, (err, data) => {
+  db.fetchWinners(req.params.year, (err, data) => {
     if (err) { return res.status(500).send(err); }
     res.send(data);
   });

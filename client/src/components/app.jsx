@@ -29,11 +29,16 @@ class App extends React.Component {
       console.log('invalid year');
       this.setState({ year: '' });
     } else {
-      console.log('you did good, kid');
       axios.get(`/${convertedYear}`)
-        .then((data) => {
-          this.setState({ year: '' });
-          console.log('data.data:', data.data);
+        .then((winners) => {
+          this.setState({
+            year: '',
+            picture: winners.data.picture,
+            director: winners.data.director,
+            actor: winners.data.actor,
+            actress: winners.data.actress
+          });
+          console.log('winners.data:', winners.data);
         })
         .catch((err) => console.log('err from server:', err));
     }

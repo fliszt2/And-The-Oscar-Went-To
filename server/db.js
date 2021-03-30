@@ -25,20 +25,44 @@ let oscarSchema = new mongoose.Schema({
 
 let Oscar = mongoose.model('Oscar', oscarSchema);
 
-var formatYear = (year, cb) => {
-  var formattedYear = yearData[year];
-  cb(null, formattedYear);
+var formatWinners = (winners) => {
+  var formattedWinners = {};
+  winners.forEach((winner) => {
+    if (winner.Category === 'Best Picture') {
+      formattedWinners.picture = winner;
+    } else if (winner.Category === 'Directing') {
+      formattedWinners.director = winner;
+    } else if (winner.Category === 'Actor -- Leading Role') {
+      formattedWinners.actor = winner;
+    } else if (winner.Category === 'Actress -- Leading Role') {
+      formattedWinners.actress = winner;
+    }
+  });
+  return formattedWinners;
 };
 
-var findYear = (year) => {
-  Oscar.findOne({ 'Year': year })
-    .then(doc => {
-      console.log('doc:', doc)
+var fetchWinners = (year, cb) => {
+  var formattedYear = yearData[year];
+  // fetch the winning rows from database
+  Oscar.find({ 'Year': formattedYear, 'Won?': 'YES'}, ['Category', 'Nominee', 'Additional Info'])
+    .then(docs => {
+      cb(null, formatWinners(docs));
     })
-    .catch(err => {
-      console.error('err:', err)
+    .catch((err) => {
+      console.log('err in fetchWinners:', err);
+      cb(err);
     });
 };
 
+// var findYear = (year) => {
+//   Oscar.findOne({ 'Year': year })
+//     .then(doc => {
+//       console.log('doc:', doc)
+//     })
+//     .catch(err => {
+//       console.error('err:', err)
+//     });
+// };
 
-module.exports = { findYear, formatYear };
+
+module.exports = { fetchWinners };

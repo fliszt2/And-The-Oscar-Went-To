@@ -1,3 +1,7 @@
 * {
   color: black;
 }
+
+h1#title {
+  cursor: pointer;
+}

@@ -1,59 +1,65 @@
 import React from 'react';
 import axios from 'axios';
+import WinnersList from './WinnersList.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.handleYearInput = this.handleYearInput.bind(this);
+    this.handleQueryInput = this.handleQueryInput.bind(this);
     this.handleSendYearClick = this.handleSendYearClick.bind(this);
+    this.handleTitleClick = this.handleTitleClick.bind(this);
     this.state = {
-      year: '',
-      picture: {},
-      director: {},
-      actor: {},
-      actress: {}
+      query: '',
+      year: 0,
+      winners: {}
     };
   }
 
-  handleYearInput(e) {
-    this.setState({ year: e.target.value });
+  handleQueryInput(e) {
+    this.setState({ query: e.target.value });
   }
 
   handleSendYearClick() {
     // check if this.state.year is a valid year (is in fact a number, and is within the timespan)
-    var convertedYear = Number(this.state.year);
-    if (Number.isNaN(convertedYear)) {
-      console.log('what is going on');
-      this.setState({ year: '' });
-    } else if (convertedYear < 1927 || convertedYear > 2010) {
+    var convertedQuery = Number(this.state.query);
+    if (Number.isNaN(convertedQuery) || convertedQuery < 1927 || convertedQuery > 2010) {
       console.log('invalid year');
-      this.setState({ year: '' });
+      this.setState({ query: '' });
     } else {
-      axios.get(`/${convertedYear}`)
+      axios.get(`/${convertedQuery}`)
         .then((winners) => {
           this.setState({
-            year: '',
-            picture: winners.data.picture,
-            director: winners.data.director,
-            actor: winners.data.actor,
-            actress: winners.data.actress
+            query: '',
+            year: convertedQuery,
+            winners: winners.data
           });
-          console.log('winners.data:', winners.data);
         })
         .catch((err) => console.log('err from server:', err));
     }
   }
 
+  handleTitleClick() {
+    this.setState({
+      winners: {},
+      year: 0
+    });
+  }
+
   render() {
     return (
       <div className='app'>
-        <h1>Who won an Oscar?</h1>
-        <label for='year'>Enter A Year (1927 – 2010):</label>
-        <br></br>
-        <br></br>
-        <input type='text' size='5' maxlength='4' id='year' name='year' placeholder='Year' value={this.state.year} onChange={this.handleYearInput}></input>
-        <span>&nbsp;</span>
-        <button type='button' onClick={this.handleSendYearClick}>Send</button>
+        <div className='header'>
+          <h1 id='title' onClick={this.handleTitleClick} >Who won an Oscar?</h1>
+          <label for='query'>Enter A Year (1927 – 2010):</label>
+          <br></br>
+          <br></br>
+          <input type='text' size='5' maxlength='4' id='query' name='query' placeholder='Year' value={this.state.query} onChange={this.handleQueryInput}></input>
+          <span>&nbsp;</span>
+          <button type='button' onClick={this.handleSendYearClick}>Send</button>
+        </div>
+        <div className='info-display'>
+          <WinnersList winners={this.state.winners}/>
+        </div>
       </div>
     );
   }

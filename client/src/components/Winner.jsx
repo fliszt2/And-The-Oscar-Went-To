@@ -4,46 +4,49 @@ import axios from 'axios';
 class Winner extends React.Component {
   constructor(props) {
     super(props);
+    this.fetchPoster = this.fetchPoster.bind(this);
     this.state = {
-      info: this.props.info,
-      category: this.props.info.Category,
-      title: this.props.info.Category.includes('-- Leading Role') ? this.props.info['Additional Info'].slice(0, this.props.info['Additional Info'].indexOf('{') - 1) : this.props.info.Nominee
+      category: this.props.category,
+      displayName: this.props.displayName,
+      title: this.props.title
     };
   }
 
   componentDidMount() {
-    if (this.state.category === 'Best Picture') {
-      axios.get(`/review/${this.state.title}`)
-        .then((data) => {
-          console.log('data:', data);
-        })
-        .catch((err) => console.log('err from server:', err));
+    if (this.state.category === 'picture') {
+      this.fetchPoster();
     }
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.info !== prevProps.info) {
+    if (this.props.title !== prevProps.title) {
       this.setState({
-        info: this.props.info,
-        title: this.props.info.Category.includes('-- Leading Role') ? this.props.info['Additional Info'].slice(0, this.props.info['Additional Info'].indexOf('{') - 1) : this.props.info.Nominee
+        category: this.props.category,
+        displayName: this.props.displayName,
+        title: this.props.title
       });
+    }
+    if (this.props.category === 'picture') {
+      this.fetchPoster();
     }
   }
 
+  fetchPoster() {
+    axios.get(`/review/${this.state.title}`)
+    .then((data) => {
+      console.log('data:', data);
+    })
+    .catch((err) => console.log('err from server:', err));
+  }
+
   render() {
-    var { info } = this.props;
-    if (info.Category === 'Best Picture') {
+    if (this.state.category === 'picture') {
       return (
-        <h4>{info.Nominee}</h4>
-      );
-    } else if (info.Category === 'Directing') {
-      return (
-        <h4>{info['Additional Info']}, {info.Nominee}</h4>
+        <h4>{this.state.displayName}</h4>
       );
     } else {
-      var filmTitle = info['Additional Info'].slice(0, info['Additional Info'].indexOf('{') - 1);
       return (
-        <h4>{info.Nominee}, {filmTitle}</h4>
+        <h4>{this.state.displayName}, {this.state.title}</h4>
       );
     }
   }

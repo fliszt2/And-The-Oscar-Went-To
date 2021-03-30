@@ -12,12 +12,9 @@ app.use(morgan('dev'));
 app.use(express.static(__dirname + '/../client/public'));
 app.use(bodyParser.json());
 
-var whereami = __dirname + '/../client/public';
-console.log('whereami:', whereami);
-
-app.get('/', (req, res) => {
-  res.send('Hello World');
-})
+// app.get('/', (req, res) => {
+//   res.send('Hello World');
+// });
 
 app.listen(port, () => console.log(`Server is listening at ${config.host}:${port}`));
 

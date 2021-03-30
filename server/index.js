@@ -19,6 +19,11 @@ app.get('/:year', (req, res) => {
   });
 });
 
+app.get('/review/:title', (req, res) => {
+  console.log('req.params.title:', req.params.title);
+  res.sendStatus(200);
+});
+
 app.listen(port, () => console.log(`Server is listening at ${config.host}:${port}`));
 
 // db.findYear('2007 (80th)');

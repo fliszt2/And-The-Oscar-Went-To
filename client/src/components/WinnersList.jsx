@@ -23,11 +23,14 @@ class WinnersList extends React.Component {
     } else {
       return (
         <div className='winners-list'>
-          <Winner info={this.state.winners.picture}/>
-          {/* <h2>Best Picture: {this.state.winners.picture.Nominee}</h2> */}
-          <h2>Best Director: {this.state.winners.director['Additional Info']}</h2>
-          <h2>Best Actress: {this.state.winners.actress.Nominee}</h2>
-          <h2>Best Actor: {this.state.winners.actor.Nominee}</h2>
+          <h3>Best Picture</h3>
+          <Winner info={this.state.winners.picture} title={this.state.winners.picture.Nominee}/>
+          <h3>Best Director</h3>
+          <Winner info={this.state.winners.director} title={this.state.winners.director.Nominee}/>
+          <h3>Best Actress</h3>
+          <Winner info={this.state.winners.actress} title={this.state.winners.actress['Additional Info'].slice(0, this.props.info['Additional Info'].indexOf('{') - 1)}/>
+          <h3>Best Actor</h3>
+          <Winner info={this.state.winners.actor} title={this.state.winners.actor['Additional Info'].slice(0, this.props.info['Additional Info'].indexOf('{') - 1)}/>
         </div>
       );
     }

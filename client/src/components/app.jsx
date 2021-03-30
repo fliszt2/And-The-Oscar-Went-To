@@ -49,7 +49,7 @@ class App extends React.Component {
     return (
       <div className='app'>
         <div className='header'>
-          <h1 id='title' onClick={this.handleTitleClick} >Who won an Oscar?</h1>
+          <h1 id='title' onClick={this.handleTitleClick} >Who Won the Oscar?</h1>
           <label for='query'>Enter A Year (1927 – 2010):</label>
           <br></br>
           <br></br>

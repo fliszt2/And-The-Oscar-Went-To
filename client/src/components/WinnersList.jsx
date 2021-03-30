@@ -1,4 +1,5 @@
 import React from 'react';
+import Winner from './Winner.jsx';
 
 class WinnersList extends React.Component {
   constructor(props) {
@@ -22,7 +23,8 @@ class WinnersList extends React.Component {
     } else {
       return (
         <div className='winners-list'>
-          <h2>Best Picture: {this.state.winners.picture.Nominee}</h2>
+          <Winner info={this.state.winners.picture}/>
+          {/* <h2>Best Picture: {this.state.winners.picture.Nominee}</h2> */}
           <h2>Best Director: {this.state.winners.director['Additional Info']}</h2>
           <h2>Best Actress: {this.state.winners.actress.Nominee}</h2>
           <h2>Best Actor: {this.state.winners.actor.Nominee}</h2>

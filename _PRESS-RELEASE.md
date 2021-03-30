@@ -18,27 +18,37 @@ Once the project moves into development, the press release can be used as a touc
 
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  > Pop Culture History, Made Easy
+  > Choose a date in time (or generate a random date) and see the #1 book, movie, and song for that day, accompanied by NYTimes review data and other supplemental information.
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > This is for anyone interested in pop culture throughout history, and may be of particular interest to theater artists, writers, and dramaturgs who want a quick and easy glimpse into the cultural milieu of a certain time period.
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > Nothing will take you back to a moment in time like knowing what people were reading, what music they were listening to, and what movies they were excited about. If you've ever wanted to time travel, there's no easier way than downloading our app and stepping straight into the past.
 
 ## Problem ##
   > Describe the problem your product solves.
+  > While there is a tremendous trove of pop culture data available online, there isn't a place to get a quick, accurate peak into what was actually popular in the past. There are no middle-men curators deciding what was important, either; what is displayed is based on NYTimes data as recorded on these dates. This application makes it easier for the general populace as well as cultural historians and creative types to have an accurate window into a moment in time.
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  > We curate a quick glance into the past with our retrieval of the #1 book, movie, and song of a given day, but also make it easy for a user to investigate further if they wish. In other words, you can either get a quick glimpse of this moment in time, or hop down a rabbit hole if you so choose. The applciation makes focused cultural research a breeze.
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  > It can actually be surprisingly difficult and time-consuming to discover what was popular in the culture for a given time period. Our application reduces that workload to a click.
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+  > Visit our website and enter a date that you are curious about!
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > I am a dramaturg for a theatrical production set in the 1960s, and this website really made it easy for myself, the creative team, and the cast to quickly immerse ourselves in the time period, which has lent our production an authenticity it would not otherwise have.
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+  > Stay tuned for our social media features, which allow you to easily share the interesting things you have discovered through out website!

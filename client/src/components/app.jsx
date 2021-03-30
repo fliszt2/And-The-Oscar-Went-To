@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
@@ -6,7 +7,11 @@ class App extends React.Component {
     this.handleYearInput = this.handleYearInput.bind(this);
     this.handleSendYearClick = this.handleSendYearClick.bind(this);
     this.state = {
-      year: ''
+      year: '',
+      picture: {},
+      director: {},
+      actor: {},
+      actress: {}
     };
   }
 
@@ -25,7 +30,12 @@ class App extends React.Component {
       this.setState({ year: '' });
     } else {
       console.log('you did good, kid');
-      this.setState({ year: '' });
+      axios.get(`/${convertedYear}`)
+        .then((data) => {
+          this.setState({ year: '' });
+          console.log('data.data:', data.data);
+        })
+        .catch((err) => console.log('err from server:', err));
     }
   }
 

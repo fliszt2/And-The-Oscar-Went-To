@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const yearData = require('./yearData.js');
 
 mongoose.connect('mongodb://localhost:27017/mvp', {
   useNewUrlParser: true,
@@ -24,6 +25,11 @@ let oscarSchema = new mongoose.Schema({
 
 let Oscar = mongoose.model('Oscar', oscarSchema);
 
+var formatYear = (year, cb) => {
+  var formattedYear = yearData[year];
+  cb(null, formattedYear);
+};
+
 var findYear = (year) => {
   Oscar.findOne({ 'Year': year })
     .then(doc => {
@@ -35,4 +41,4 @@ var findYear = (year) => {
 };
 
 
-module.exports = { findYear };
+module.exports = { findYear, formatYear };

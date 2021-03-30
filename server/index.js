@@ -12,9 +12,13 @@ app.use(morgan('dev'));
 app.use(express.static(__dirname + '/../client/public'));
 app.use(bodyParser.json());
 
-// app.get('/', (req, res) => {
-//   res.send('Hello World');
-// });
+app.get('/:year', (req, res) => {
+  console.log('req.params.year:', req.params.year);
+  db.formatYear(req.params.year, (err, data) => {
+    if (err) { return res.status(500).send(err); }
+    res.send(data);
+  });
+});
 
 app.listen(port, () => console.log(`Server is listening at ${config.host}:${port}`));
 

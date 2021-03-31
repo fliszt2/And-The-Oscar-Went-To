@@ -53,10 +53,10 @@
   /* border: 1px solid black; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 2fr 2fr;
   justify-content: center;
   column-gap: 15px;
-  padding: 5px;
+  /* padding: 5px; */
 }
 
 .winner-header {
@@ -72,26 +72,26 @@
 }
 
 .winner-poster {
-  grid-row: 4 / 5;
+  grid-row: 4 / 6;
 }
 
 .pic {
-  padding: 5px;
+  padding: 0 5px;
   grid-column: 2 / 3;
 }
 
 .dir {
-  padding: 5px;
+  padding: 0 5px;
   grid-column: 3 / 4;
 }
 
 .actress {
-  padding: 5px;
+  padding: 0 5px;
   grid-column: 4 / 5;
 }
 
 .actor {
-  padding: 5px;
+  padding: 0 5px;
   grid-column: 5 / 6;
 }
 
@@ -100,6 +100,11 @@
 img#oscar{
   width: 427px;
   height: 640px;
+}
+
+img.placeholder-poster {
+  width: 115px;
+  height: 172px;
 }
 
 h1#title {

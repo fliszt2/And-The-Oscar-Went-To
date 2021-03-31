@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import InfoModal from './InfoModal.jsx';
+import Poster from './Poster.jsx';
 
 class Winner extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class Winner extends React.Component {
       displayName: this.props.displayName,
       title: this.props.title,
       review: this.props.review,
+      posterUrl: '',
       showModal: false
     };
   }
@@ -67,7 +69,9 @@ class Winner extends React.Component {
              <h5 className='more winner-text' onClick={this.showModal}>More</h5>
              <InfoModal handleClose={this.hideModal} showModal={this.state.showModal} review={this.state.review}/>
          </div>
-         <div className='pic winner-poster'></div>
+         <div className='pic winner-poster'>
+           <Poster posterUrl={this.state.posterUrl}/>
+         </div>
         </>
       );
     } else if (this.state.category === 'picture') {
@@ -80,7 +84,9 @@ class Winner extends React.Component {
             <h4 className='winner-text'>{this.state.displayName}</h4>
           </div>
           <div className='pic winner-more'></div>
-          <div className='pic winner-poster'></div>
+          <div className='pic winner-poster'>
+            <Poster posterUrl={this.state.posterUrl}/>
+          </div>
         </>
       );
     } else if (this.state.category === 'director') {
@@ -95,7 +101,9 @@ class Winner extends React.Component {
           <div className='dir winner-more'>
             <h5 className='winner-text'>{this.state.title}</h5>
           </div>
-          <div className='dir winner-poster'></div>
+          <div className='dir winner-poster'>
+            <Poster posterUrl={this.state.posterUrl}/>
+          </div>
         </>
       );
     } else if (this.state.category.includes('actor')) {
@@ -110,7 +118,9 @@ class Winner extends React.Component {
           <div className='actress winner-more'>
             <h5 className='winner-text'>{this.state.title}</h5>
           </div>
-          <div className='actress winner-poster'></div>
+          <div className='actress winner-poster'>
+            <Poster posterUrl={this.state.posterUrl}/>
+          </div>
         </>
       );
     } else {
@@ -125,7 +135,9 @@ class Winner extends React.Component {
           <div className='actor winner-more'>
             <h5 className='winner-text'>{this.state.title}</h5>
           </div>
-          <div className='actor winner-poster'></div>
+          <div className='actor winner-poster'>
+            <Poster posterUrl={this.state.posterUrl}/>
+          </div>
         </>
       );
     }

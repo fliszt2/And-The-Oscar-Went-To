@@ -15,6 +15,17 @@ module.exports.getReview = (year, title, cb) => {
   // return 'review for ' + year + title;
 };
 
+module.exports.getSummary = (title, cb) => {
+  var formattedTitle = title.toLowerCase().split(' ').join('+');
+  var query = `http://www.omdbapi.com/?i=${config.imdbId}&apikey=${config.omdbApiKey}&type=movie&plot=short&r=json&t=${formattedTitle}`;
+  axios.get(query)
+    .then((info) => {
+      // if "Response" === "True"
+      cb(null, info.data);
+    })
+    .catch((err) => cb(err));
+};
+
 module.exports.getPoster = (info, cb) => {
   var query = `https://movie-database-imdb-alternative.p.rapidapi.com/?s=${info[0]}&page="1"&r="json"`;
   // console.log('query:', query);

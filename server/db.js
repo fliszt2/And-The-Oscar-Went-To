@@ -54,9 +54,21 @@ var fetchWinners = (year, cb) => {
       var bestPicTitle = justMainCats.picture.Nominee;
       api.getReview(year, bestPicTitle, (err, data) => {
         if (err) { return cb(err); }
-        // console.log('data from api:', data);
-        justMainCats.review = data;
-        cb(null, justMainCats);
+        console.log('data from api:', data);
+        if (data) {
+          data.nytimes = true;
+          justMainCats.review = data;
+          cb(null, justMainCats);
+        } else {
+          // fetch from the other API
+          api.getSummary(bestPicTitle, (err, info) => {
+            if (err) { return cb(err); }
+            console.log('info from API', info);
+            info.nytimes = false;
+            justMainCats.review = info;
+            cb(null, justMainCats);
+          })
+        }
       })
     })
     //     .then((data) => {

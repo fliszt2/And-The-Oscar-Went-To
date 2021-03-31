@@ -46,7 +46,7 @@ class Winner extends React.Component {
       return (
         <div>
           <a href={this.state.review.link.url} target='blank'><h4 className='winner nytimes'>{this.state.displayName}</h4></a>
-          <p className='byline'>{this.state.review.headline}</p>
+          <p className='headline'>{this.state.review.headline}</p>
         </div>
       );
     } else if (this.state.category === 'picture') {

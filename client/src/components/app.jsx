@@ -58,8 +58,11 @@ class App extends React.Component {
           <span>&nbsp;</span>
           <button type='button' onClick={this.handleSendYearClick}>Send</button>
         </div>
+        {/* <div className='oscar'>
+          <img id='oscar' src='../img/oscar.jpg'></img>
+        </div> */}
         <div className='info-display'>
-          <WinnersList winners={this.state.winners}/>
+          <WinnersList winners={this.state.winners} />
         </div>
       </div>
     );

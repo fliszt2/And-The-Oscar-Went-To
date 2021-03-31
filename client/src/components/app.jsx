@@ -28,7 +28,7 @@ class App extends React.Component {
     } else {
       axios.get(`/movies/${convertedQuery}`)
         .then((winners) => {
-          // console.log('winners.data:', winners.data);
+          console.log('winners.data:', winners.data);
           this.setState({
             query: '',
             year: convertedQuery,

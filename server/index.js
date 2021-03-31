@@ -40,6 +40,21 @@ app.get('/poster/:info', (req, res) => {
   });
 });
 
+app.get('/info/:title', (req, res) => {
+  console.log('req.params.title:', req.params.title);
+  // fetch from the other API
+  api.getSummary(req.params.title, (err, info) => {
+    if (err) {
+      console.log('err:', err);
+      return res.status(500).send(err);
+    }
+    console.log('info from API', info);
+    info.nytimes = false;
+    // justMainCats.review = info;
+    res.send(info);
+  })
+});
+
 // app.get('/review/:title', (req, res) => {
 //   console.log('req.params.title:', req.params.title);
 //   res.sendStatus(200);

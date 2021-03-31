@@ -59,7 +59,7 @@ class Winner extends React.Component {
   }
 
   render() {
-    if (this.state.category === 'picture' && this.state.review) {
+    if (this.state.category === 'picture' && this.state.review.nytimes) {
       return (
         <>
           <div className='pic winner-header'>
@@ -69,11 +69,11 @@ class Winner extends React.Component {
             <h4 className='winner-text'>{this.state.displayName}</h4>
           </div>
           <div className='pic winner-more'>
-             <h5 className='more winner-text' onClick={this.showModal}>More</h5>
-             <InfoModal handleClose={this.hideModal} showModal={this.state.showModal} review={this.state.review}/>
+             <h5 className='more winner-text' onClick={this.showModal}>...but what did the Times say?</h5>
+             <InfoModal handleClose={this.hideModal} showModal={this.state.showModal} info={this.state.review}/>
          </div>
          <div className='pic winner-poster'>
-           <Poster posterUrl={this.state.posterUrl}/>
+           <Poster posterUrl={this.state.posterUrl} title={this.state.title}/>
          </div>
         </>
       );
@@ -88,7 +88,7 @@ class Winner extends React.Component {
           </div>
           <div className='pic winner-more'></div>
           <div className='pic winner-poster'>
-            <Poster posterUrl={this.state.posterUrl}/>
+            <Poster posterUrl={this.state.posterUrl} title={this.state.title}/>
           </div>
         </>
       );
@@ -105,11 +105,11 @@ class Winner extends React.Component {
             <h5 className='winner-text'>{this.state.title}</h5>
           </div>
           <div className='dir winner-poster'>
-            <Poster posterUrl={this.state.posterUrl}/>
+            <Poster posterUrl={this.state.posterUrl} title={this.state.title}/>
           </div>
         </>
       );
-    } else if (this.state.category.includes('actor')) {
+    } else if (this.state.category.includes('actress')) {
       return (
         <>
           <div className='actress winner-header'>
@@ -122,7 +122,7 @@ class Winner extends React.Component {
             <h5 className='winner-text'>{this.state.title}</h5>
           </div>
           <div className='actress winner-poster'>
-            <Poster posterUrl={this.state.posterUrl}/>
+            <Poster posterUrl={this.state.posterUrl} title={this.state.title}/>
           </div>
         </>
       );
@@ -139,7 +139,7 @@ class Winner extends React.Component {
             <h5 className='winner-text'>{this.state.title}</h5>
           </div>
           <div className='actor winner-poster'>
-            <Poster posterUrl={this.state.posterUrl}/>
+            <Poster posterUrl={this.state.posterUrl} title={this.state.title}/>
           </div>
         </>
       );

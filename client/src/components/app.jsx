@@ -26,8 +26,9 @@ class App extends React.Component {
       console.log('invalid year');
       this.setState({ query: '' });
     } else {
-      axios.get(`/${convertedQuery}`)
+      axios.get(`/movies/${convertedQuery}`)
         .then((winners) => {
+          console.log('winners.data:', winners.data);
           this.setState({
             query: '',
             year: convertedQuery,

@@ -4,7 +4,7 @@ import axios from 'axios';
 class Winner extends React.Component {
   constructor(props) {
     super(props);
-    this.fetchPoster = this.fetchPoster.bind(this);
+    // this.fetchPoster = this.fetchPoster.bind(this);
     this.state = {
       category: this.props.category,
       displayName: this.props.displayName,
@@ -12,11 +12,11 @@ class Winner extends React.Component {
     };
   }
 
-  componentDidMount() {
-    if (this.state.category === 'picture') {
-      this.fetchPoster();
-    }
-  }
+  // componentDidMount() {
+  //   if (this.state.category === 'picture') {
+  //     this.fetchPoster();
+  //   }
+  // }
 
   componentDidUpdate(prevProps) {
     if (this.props.title !== prevProps.title) {
@@ -26,18 +26,18 @@ class Winner extends React.Component {
         title: this.props.title
       });
     }
-    if (this.props.category === 'picture') {
-      this.fetchPoster();
-    }
+    // if (this.props.category === 'picture') {
+    //   this.fetchPoster();
+    // }
   }
 
-  fetchPoster() {
-    axios.get(`/review/${this.state.title}`)
-    .then((data) => {
-      console.log('data:', data);
-    })
-    .catch((err) => console.log('err from server:', err));
-  }
+  // fetchPoster() {
+  //   axios.get(`/review/${this.state.title}`)
+  //   .then((data) => {
+  //     console.log('data:', data);
+  //   })
+  //   .catch((err) => console.log('err from server:', err));
+  // }
 
   render() {
     if (this.state.category === 'picture') {

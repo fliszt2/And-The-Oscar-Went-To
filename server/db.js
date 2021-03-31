@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const yearData = require('./yearData.js');
+const api = require('./api.js');
 
 mongoose.connect('mongodb://localhost:27017/mvp', {
   useNewUrlParser: true,
@@ -43,15 +44,38 @@ var formatWinners = (winners) => {
 
 var fetchWinners = (year, cb) => {
   var formattedYear = yearData[year];
+  var justMainCats;
   // fetch the winning rows from database
   Oscar.find({ 'Year': formattedYear, 'Won?': 'YES'}, ['Category', 'Nominee', 'Additional Info'])
     .then(docs => {
-      cb(null, formatWinners(docs));
+      justMainCats = formatWinners(docs);
+      // capture the title
+      var bestPicTitle = justMainCats.picture.Nominee;
+      api.getReview(year, bestPicTitle, (err, data) => {
+        if (err) { return cb(err); }
+        // console.log('data from api:', data);
+        justMainCats.review = data;
+        cb(null, justMainCats);
+      })
     })
-    .catch((err) => {
-      console.log('err in fetchWinners:', err);
-      cb(err);
-    });
+    //     .then((data) => {
+    //       console.log('data from api:', data);
+    //       justMainCats.review = data;
+    //       cb(null, justMainCats);
+    //     })
+    //     .catch((err) => cb(err));
+    // })
+    //   api.getReview(year, bestPicTitle, (err, data) => {
+    //     if (err) { return cb(err); }
+    //     // console.log('data:', data);
+    //     justMainCats.review = data;
+    //     console.log('justMainCats.picture:', justMainCats.picture);
+    //     console.log('justMainCats:', justMainCats);
+    //     return cb(null, justMainCats);
+    //   })
+    //   // cb(null, justMainCats);
+    // })
+    .catch((err) => cb(err));
 };
 
 // var findYear = (year) => {

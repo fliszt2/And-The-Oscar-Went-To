@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const db = require('./db.js');
 const config = require('../config.js');
+const api = require('./api.js');
 
 const app = express();
 const port = 3001;
@@ -25,6 +26,16 @@ app.get('/movies/:year', (req, res) => {
       return res.status(500).send(err);
     }
     // console.log('data:', data);
+    res.send(data);
+  });
+});
+
+app.get('/poster/:info', (req, res) => {
+  api.getPoster(req.params.info.split('+'), (err, data) => {
+    if (err) {
+      console.log('err:', err);
+      return res.status(500).send(err);
+    }
     res.send(data);
   });
 });

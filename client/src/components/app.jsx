@@ -28,7 +28,7 @@ class App extends React.Component {
     } else {
       axios.get(`/movies/${convertedQuery}`)
         .then((winners) => {
-          console.log('winners.data:', winners.data);
+          // console.log('winners.data:', winners.data);
           this.setState({
             query: '',
             year: convertedQuery,
@@ -64,7 +64,7 @@ class App extends React.Component {
         <div className='year-container'>
           <h2 className={this.state.year === 0 ? 'display-none' : 'year'}>{this.state.year}</h2>
         </div>
-        <WinnersList winners={this.state.winners} />
+        <WinnersList winners={this.state.winners} year={this.state.year}/>
       </div>
     );
   }

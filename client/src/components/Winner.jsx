@@ -15,23 +15,25 @@ class Winner extends React.Component {
       title: this.props.title,
       review: this.props.review,
       posterUrl: '',
-      showModal: false
+      showModal: false,
+      year: this.props.year
     };
   }
 
-  // componentDidMount() {
-  //   if (this.state.category === 'picture') {
-  //     this.fetchPoster();
-  //   }
-  // }
+  componentDidMount() {
+    this.fetchPoster();
+  }
 
   componentDidUpdate(prevProps) {
     if (this.props.title !== prevProps.title) {
+      this.fetchPoster();
       this.setState({
         category: this.props.category,
         displayName: this.props.displayName,
         title: this.props.title,
-        review: this.props.review
+        review: this.props.review,
+        year: this.props.year,
+        posterUrl: ''
       });
     }
     // if (this.props.category === 'picture') {
@@ -47,13 +49,14 @@ class Winner extends React.Component {
     this.setState({ showModal: false });
   }
 
-  // fetchPoster() {
-  //   axios.get(`/review/${this.state.title}`)
-  //   .then((data) => {
-  //     console.log('data:', data);
-  //   })
-  //   .catch((err) => console.log('err from server:', err));
-  // }
+  fetchPoster() {
+    axios.get(`/poster/${this.props.title}+${this.props.year}`)
+    .then((data) => {
+      // console.log('data:', data);
+      this.setState({ posterUrl: data.data });
+    })
+    .catch((err) => console.log('err from server:', err));
+  }
 
   render() {
     if (this.state.category === 'picture' && this.state.review) {

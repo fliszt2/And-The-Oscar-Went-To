@@ -14,3 +14,30 @@ module.exports.getReview = (year, title, cb) => {
     .catch((err) => cb(err));
   // return 'review for ' + year + title;
 };
+
+module.exports.getPoster = (info, cb) => {
+  var query = `https://movie-database-imdb-alternative.p.rapidapi.com/?s=${info[0]}&page="1"&r="json"`;
+  // console.log('query:', query);
+  var options = {
+    headers: {
+      'x-rapidapi-key': config.rapidApiKey,
+      'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com',
+      'useQueryString': true
+    }
+  };
+  axios.get(query, options)
+    .then((data) => {
+      // find the object in data.data.Search that has a year (give or take) matching info[1]
+      var posterUrl = '';
+      var yearUpperBound = Number(info[1]) + 1;
+      var yearLowerBound = Number(info[1]) - 1;
+      for (var film of data.data.Search) {
+        if (film.Year <= yearUpperBound && film.Year >= yearLowerBound) {
+          posterUrl = film.Poster === 'N/A' ? '' : film.Poster;
+          break;
+        }
+      }
+      return cb(null, posterUrl);
+    })
+    .catch((err) => cb(err));
+};

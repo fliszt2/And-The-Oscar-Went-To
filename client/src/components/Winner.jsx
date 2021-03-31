@@ -56,30 +56,108 @@ class Winner extends React.Component {
   render() {
     if (this.state.category === 'picture' && this.state.review) {
       return (
-        <div>
-          <h4 className='winner'>{this.state.displayName}</h4>
-          <br></br>
-          <h5 className='more' onClick={this.showModal}>More</h5>
-          <InfoModal handleClose={this.hideModal} showModal={this.state.showModal} review={this.state.review}/>
-        </div>
+        <>
+          <div className='pic winner-header'>
+            <h3 className='winner-text-header'>Picture</h3>
+          </div>
+          <div className='pic winner-name'>
+            <h4 className='winner-text'>{this.state.displayName}</h4>
+          </div>
+          <div className='pic winner-more'>
+             <h5 className='more winner-text' onClick={this.showModal}>More</h5>
+             <InfoModal handleClose={this.hideModal} showModal={this.state.showModal} review={this.state.review}/>
+         </div>
+         <div className='pic winner-poster'></div>
+        </>
       );
     } else if (this.state.category === 'picture') {
       return (
-        <h4 className='winner'>{this.state.displayName}</h4>
+        <>
+          <div className='pic winner-header'>
+            <h3 className='winner-text-header'>Picture</h3>
+          </div>
+          <div className='pic winner-name'>
+            <h4 className='winner-text'>{this.state.displayName}</h4>
+          </div>
+          <div className='pic winner-more'></div>
+          <div className='pic winner-poster'></div>
+        </>
+      );
+    } else if (this.state.category === 'director') {
+      return (
+        <>
+          <div className='dir winner-header'>
+            <h3 className='winner-text-header'>Director</h3>
+          </div>
+          <div className='dir winner-name'>
+            <h4 className='winner-text'>{this.state.displayName}</h4>
+          </div>
+          <div className='dir winner-more'>
+            <h5 className='winner-text'>{this.state.title}</h5>
+          </div>
+          <div className='dir winner-poster'></div>
+        </>
+      );
+    } else if (this.state.category.includes('actor')) {
+      return (
+        <>
+          <div className='actress winner-header'>
+            <h3 className='winner-text-header'>Actress</h3>
+          </div>
+          <div className='actress winner-name'>
+            <h4 className='winner-text'>{this.state.displayName}</h4>
+          </div>
+          <div className='actress winner-more'>
+            <h5 className='winner-text'>{this.state.title}</h5>
+          </div>
+          <div className='actress winner-poster'></div>
+        </>
       );
     } else {
       return (
-        <div>
-          <h4 className='winner'>{this.state.displayName}</h4>
-          <br></br>
-          <h5>{this.state.title}</h5>
-        </div>
+        <>
+          <div className='actor winner-header'>
+            <h3 className='winner-text-header'>Actor</h3>
+          </div>
+          <div className='actor winner-name'>
+            <h4 className='winner-text'>{this.state.displayName}</h4>
+          </div>
+          <div className='actor winner-more'>
+            <h5 className='winner-text'>{this.state.title}</h5>
+          </div>
+          <div className='actor winner-poster'></div>
+        </>
       );
     }
   }
-
 }
 
 export default Winner;
 
 {/* <a href={this.state.review.link.url} target='blank'></a> */}
+
+// if (this.state.category === 'picture' && this.state.review) {
+//   return (
+//     <div className='winner'>
+//       <h4 className='winner-name'>{this.state.displayName}</h4>
+//       <br></br>
+//       <h5 className='more' onClick={this.showModal}>More</h5>
+//       <InfoModal handleClose={this.hideModal} showModal={this.state.showModal} review={this.state.review}/>
+//     </div>
+//   );
+// } else if (this.state.category === 'picture') {
+//   return (
+//     <div className='winner'>
+//       <h4 className='winner'>{this.state.displayName}</h4>
+//     </div>
+//   );
+// } else {
+//   return (
+//     <div className='winner'>
+//       <h4>{this.state.displayName}</h4>
+//       <br></br>
+//       <h5>{this.state.title}</h5>
+//     </div>
+//   );
+// }
+// }

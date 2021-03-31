@@ -56,9 +56,9 @@ class App extends React.Component {
             <label for='query'>(1927 – 2010)</label>
             <br></br>
             <br></br>
-            <input type='text' size='5' maxlength='4' id='query' name='query' placeholder='Year' value={this.state.query} onChange={this.handleQueryInput}></input>
+            <input type='text' size='5' maxlength='4' id='query' name='query' placeholder='&nbsp;Year' value={this.state.query} onChange={this.handleQueryInput}></input>
             <span>&nbsp;</span>
-            <button type='button' onClick={this.handleSendYearClick}>Open the Envelope</button>
+            <button type='button' onClick={this.handleSendYearClick}>&nbsp;Open the Envelope&nbsp;</button>
           </div>
         </div>
         <div className='year-container'>

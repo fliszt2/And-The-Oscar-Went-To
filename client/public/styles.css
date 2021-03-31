@@ -19,6 +19,8 @@
 .header {
   grid-row: 1 / 3;
   grid-column: 3 / 4;
+  justify-content: center;
+  text-align: center;
 }
 
 .container-placeholder {
@@ -35,35 +37,49 @@
 }
 
 .container-winners {
-  margin-top: 25px;
+  margin: 25px 10px 0 10px;
+  /* border: 1px solid black; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   justify-content: center;
   column-gap: 15px;
+  padding: 5px;
 }
 
-.winner {
-  padding: 2px;
+.winner-header {
+  grid-row: 1 / 2;
 }
 
-.picture {
-  grid-row: 1 / 3;
+.winner-name {
+  grid-row: 2 / 3;
+}
+
+.winner-more {
+  grid-row: 3 / 4;
+}
+
+.winner-poster {
+  grid-row: 4 / 5;
+}
+
+.pic {
+  padding: 5px;
   grid-column: 2 / 3;
 }
 
-.director {
-  grid-row: 1 / 3;
+.dir {
+  padding: 5px;
   grid-column: 3 / 4;
 }
 
 .actress {
-  grid-row: 1 / 3;
+  padding: 5px;
   grid-column: 4 / 5;
 }
 
 .actor {
-  grid-row: 1 / 3;
+  padding: 5px;
   grid-column: 5 / 6;
 }
 
@@ -78,8 +94,9 @@ h1#title {
   cursor: pointer;
 }
 
-.winner {
+.winner-text {
   color: darkgreen;
+  margin-bottom: 5px;
 }
 
 .more {

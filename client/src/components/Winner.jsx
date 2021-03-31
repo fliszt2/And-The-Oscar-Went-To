@@ -56,8 +56,8 @@ class Winner extends React.Component {
     if (this.state.category === 'picture' && this.state.review) {
       return (
         <div>
-          <h4 className='winner nytimes' onClick={this.showModal}>{this.state.displayName}</h4>
-          <p className='headline'>{this.state.review.headline}</p>
+          <h4 className='winner'>{this.state.displayName}</h4>
+          <h5 className='more' onClick={this.showModal}>More</h5>
         </div>
       );
     } else if (this.state.category === 'picture') {

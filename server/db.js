@@ -50,6 +50,7 @@ var fetchWinners = (year, cb) => {
     .then(docs => {
       justMainCats = formatWinners(docs);
       // capture the title
+      // console.log('docs:', docs);
       var bestPicTitle = justMainCats.picture.Nominee;
       api.getReview(year, bestPicTitle, (err, data) => {
         if (err) { return cb(err); }

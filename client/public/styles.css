@@ -69,6 +69,7 @@
 
 .winner-more {
   grid-row: 3 / 4;
+  margin-bottom: 5px;
 }
 
 .winner-poster {

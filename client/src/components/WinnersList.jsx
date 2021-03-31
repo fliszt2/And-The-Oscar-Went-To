@@ -24,7 +24,7 @@ class WinnersList extends React.Component {
       return (
         <div className='winners-list'>
           <h3>Best Picture</h3>
-          <Winner category='picture' displayName={this.state.winners.picture.Nominee} title={this.state.winners.picture.Nominee}/>
+          <Winner category='picture' displayName={this.state.winners.picture.Nominee} title={this.state.winners.picture.Nominee} review={this.state.winners.review}/>
           <h3>Best Director</h3>
           <Winner category='director' displayName={this.state.winners.director['Additional Info']} title={this.state.winners.director.Nominee}/>
           <h3>Best Actress</h3>

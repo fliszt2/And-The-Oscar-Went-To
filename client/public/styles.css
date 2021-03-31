@@ -5,3 +5,17 @@
 h1#title {
   cursor: pointer;
 }
+
+.winner {
+  color: darkgreen;
+}
+
+.nytimes {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.byline {
+  font-style: italic;
+  color: darkslateblue;
+}

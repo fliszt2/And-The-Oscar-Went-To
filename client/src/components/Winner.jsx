@@ -8,7 +8,8 @@ class Winner extends React.Component {
     this.state = {
       category: this.props.category,
       displayName: this.props.displayName,
-      title: this.props.title
+      title: this.props.title,
+      review: this.props.review
     };
   }
 
@@ -23,7 +24,8 @@ class Winner extends React.Component {
       this.setState({
         category: this.props.category,
         displayName: this.props.displayName,
-        title: this.props.title
+        title: this.props.title,
+        review: this.props.review
       });
     }
     // if (this.props.category === 'picture') {
@@ -40,13 +42,20 @@ class Winner extends React.Component {
   // }
 
   render() {
-    if (this.state.category === 'picture') {
+    if (this.state.category === 'picture' && this.state.review) {
       return (
-        <h4>{this.state.displayName}</h4>
+        <div>
+          <a href={this.state.review.link.url} target='blank'><h4 className='winner nytimes'>{this.state.displayName}</h4></a>
+          <p className='byline'>{this.state.review.headline}</p>
+        </div>
+      );
+    } else if (this.state.category === 'picture') {
+      return (
+        <h4 className='winner'>{this.state.displayName}</h4>
       );
     } else {
       return (
-        <h4>{this.state.displayName}, {this.state.title}</h4>
+        <h4 className='winner'>{this.state.displayName}, {this.state.title}</h4>
       );
     }
   }

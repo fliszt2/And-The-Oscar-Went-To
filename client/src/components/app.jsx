@@ -51,14 +51,19 @@ class App extends React.Component {
       <div className='app'>
         <div className='container-header'>
           <div className='header'>
-            <h1 id='title' onClick={this.handleTitleClick} >Who Won the Oscar?</h1>
-            <label for='query'>Enter A Year (1927 – 2010):</label>
+            <h1 id='title' onClick={this.handleTitleClick} >And The Oscar Went To...</h1>
+            <br></br>
+            <label for='query'>(1927 – 2010)</label>
             <br></br>
             <br></br>
             <input type='text' size='5' maxlength='4' id='query' name='query' placeholder='Year' value={this.state.query} onChange={this.handleQueryInput}></input>
             <span>&nbsp;</span>
-            <button type='button' onClick={this.handleSendYearClick}>Send</button>
+            <button type='button' onClick={this.handleSendYearClick}>Open the Envelope</button>
           </div>
+        </div>
+        <div className='year-container'>
+          {/* <br></br> */}
+          <h3 className={this.state.year === 0 ? 'display-none' : 'year'}>{this.state.year}</h3>
         </div>
         {/* <div className='oscar'>
           <img id='oscar' src='../img/oscar.jpg'></img>

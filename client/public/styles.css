@@ -1,12 +1,15 @@
 * {
-  color: black;
+  color: #1a1917;
   background-color: #f0b000;
   font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 /* grid layout */
 
 .container-header {
+  margin-top: 15px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -32,10 +35,16 @@
 }
 
 .container-winners {
+  margin-top: 25px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   justify-content: center;
+  column-gap: 15px;
+}
+
+.winner {
+  padding: 2px;
 }
 
 .picture {
@@ -77,4 +86,46 @@ h1#title {
   font-style: italic;
   cursor: pointer;
   text-decoration: underline;
+}
+
+.additional-text {
+  font-style: italic;
+  color: #454036;
+}
+
+.year-container {
+  margin-top: 15px;
+  text-align: center;
+}
+
+/* modal */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+}
+
+.modal-main {
+  position: fixed;
+  background: #f0b000;
+  padding: 4px;
+  width: 40%;
+  height: auto;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  justify-content: center;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
 }

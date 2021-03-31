@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import InfoModal from './InfoModal.jsx';
 
 class Winner extends React.Component {
   constructor(props) {
@@ -37,11 +38,11 @@ class Winner extends React.Component {
   }
 
   showModal() {
-    this.setState({ show: true });
+    this.setState({ showModal: true });
   }
 
   hideModal() {
-    this.setState({ show: false });
+    this.setState({ showModal: false });
   }
 
   // fetchPoster() {
@@ -57,7 +58,9 @@ class Winner extends React.Component {
       return (
         <div>
           <h4 className='winner'>{this.state.displayName}</h4>
+          <br></br>
           <h5 className='more' onClick={this.showModal}>More</h5>
+          <InfoModal handleClose={this.hideModal} showModal={this.state.showModal} review={this.state.review}/>
         </div>
       );
     } else if (this.state.category === 'picture') {
@@ -68,6 +71,7 @@ class Winner extends React.Component {
       return (
         <div>
           <h4 className='winner'>{this.state.displayName}</h4>
+          <br></br>
           <h5>{this.state.title}</h5>
         </div>
       );

@@ -6,7 +6,7 @@ const db = require('./db.js');
 const config = require('../config.js');
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/../client/public'));

@@ -63,7 +63,7 @@ class App extends React.Component {
         </div>
         <div className='year-container'>
           {/* <br></br> */}
-          <h3 className={this.state.year === 0 ? 'display-none' : 'year'}>{this.state.year}</h3>
+          <h2 className={this.state.year === 0 ? 'display-none' : 'year'}>{this.state.year}</h2>
         </div>
         {/* <div className='oscar'>
           <img id='oscar' src='../img/oscar.jpg'></img>

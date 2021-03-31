@@ -49,21 +49,21 @@ class App extends React.Component {
   render() {
     return (
       <div className='app'>
-        <div className='header'>
-          <h1 id='title' onClick={this.handleTitleClick} >Who Won the Oscar?</h1>
-          <label for='query'>Enter A Year (1927 – 2010):</label>
-          <br></br>
-          <br></br>
-          <input type='text' size='5' maxlength='4' id='query' name='query' placeholder='Year' value={this.state.query} onChange={this.handleQueryInput}></input>
-          <span>&nbsp;</span>
-          <button type='button' onClick={this.handleSendYearClick}>Send</button>
+        <div className='container-header'>
+          <div className='header'>
+            <h1 id='title' onClick={this.handleTitleClick} >Who Won the Oscar?</h1>
+            <label for='query'>Enter A Year (1927 – 2010):</label>
+            <br></br>
+            <br></br>
+            <input type='text' size='5' maxlength='4' id='query' name='query' placeholder='Year' value={this.state.query} onChange={this.handleQueryInput}></input>
+            <span>&nbsp;</span>
+            <button type='button' onClick={this.handleSendYearClick}>Send</button>
+          </div>
         </div>
         {/* <div className='oscar'>
           <img id='oscar' src='../img/oscar.jpg'></img>
         </div> */}
-        <div className='info-display'>
-          <WinnersList winners={this.state.winners} />
-        </div>
+        <WinnersList winners={this.state.winners} />
       </div>
     );
   }

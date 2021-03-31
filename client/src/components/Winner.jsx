@@ -5,11 +5,14 @@ class Winner extends React.Component {
   constructor(props) {
     super(props);
     // this.fetchPoster = this.fetchPoster.bind(this);
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
     this.state = {
       category: this.props.category,
       displayName: this.props.displayName,
       title: this.props.title,
-      review: this.props.review
+      review: this.props.review,
+      showModal: false
     };
   }
 
@@ -33,6 +36,14 @@ class Winner extends React.Component {
     // }
   }
 
+  showModal() {
+    this.setState({ show: true });
+  }
+
+  hideModal() {
+    this.setState({ show: false });
+  }
+
   // fetchPoster() {
   //   axios.get(`/review/${this.state.title}`)
   //   .then((data) => {
@@ -45,7 +56,7 @@ class Winner extends React.Component {
     if (this.state.category === 'picture' && this.state.review) {
       return (
         <div>
-          <a href={this.state.review.link.url} target='blank'><h4 className='winner nytimes'>{this.state.displayName}</h4></a>
+          <h4 className='winner nytimes' onClick={this.showModal}>{this.state.displayName}</h4>
           <p className='headline'>{this.state.review.headline}</p>
         </div>
       );
@@ -55,7 +66,10 @@ class Winner extends React.Component {
       );
     } else {
       return (
-        <h4 className='winner'>{this.state.displayName}, {this.state.title}</h4>
+        <div>
+          <h4 className='winner'>{this.state.displayName}</h4>
+          <h5>{this.state.title}</h5>
+        </div>
       );
     }
   }
@@ -63,3 +77,5 @@ class Winner extends React.Component {
 }
 
 export default Winner;
+
+{/* <a href={this.state.review.link.url} target='blank'></a> */}

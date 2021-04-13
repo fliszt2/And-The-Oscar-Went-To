@@ -47,14 +47,13 @@ class Poster extends React.Component {
       return (
         <img className='poster' src='../img/oscar.jpg'></img>
       )
-    } else {
-      return (
-        <>
-          <img className='poster' src={this.state.posterUrl} onClick={this.showModal}></img>
-          <InfoModal handleClose={this.hideModal} showModal={this.state.showModal} info={this.state.info}/>
-        </>
-      )
     }
+    return (
+      <>
+        <img className='poster' src={this.state.posterUrl} onClick={this.showModal}></img>
+        <InfoModal handleClose={this.hideModal} showModal={this.state.showModal} info={this.state.info} />
+      </>
+    )
   }
 }
 

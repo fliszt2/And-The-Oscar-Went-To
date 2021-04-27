@@ -1,7 +1,14 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  color: #1a1917;
+  /* color: #1a1917; */
+  color: rgb(209, 161, 30);
   /* background-color: #f0b000; */
-  background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(240, 176, 0, 1));
+  /* background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(240, 176, 0, 1)); */
+  background-image: linear-gradient(to right, rgba(7, 7, 7, 0.842), rgb(26, 25, 21));
   font-family: 'Nunito Sans', sans-serif;
   margin: 0;
   padding: 0;
@@ -71,6 +78,7 @@ body {
 .winner-more {
   grid-row: 3 / 4;
   margin-bottom: 5px;
+  font-style: italic;
 }
 
 .winner-poster {
@@ -101,16 +109,22 @@ body {
 
 button {
   outline: none;
+  border: 0;
+  padding: 1px;
 }
 
 button.envelope {
-  background-color: #1a1917;
-  color: #f0b000;
+  /* background-color: #1a1917;
+  color: #f0b000; */
+  color: #1a1917;
+  background-color: #f0b000;
+  line-height: 150%;
 }
 
 img#oscar{
   width: 427px;
   height: 640px;
+  border-radius: 3px;
 }
 
 img.poster {
@@ -120,6 +134,7 @@ img.poster {
 }
 
 img.poster-loading {
+  display: none;
   object-fit: contain;
 }
 
@@ -127,9 +142,15 @@ h1#title {
   cursor: pointer;
 }
 
+.winner-text-header {
+  color: whitesmoke;
+}
+
 .winner-text {
-  color: darkgreen;
+  /* color: darkgreen; */
+  color: rgb(209, 161, 30);
   margin-bottom: 5px;
+  /* margin-top: -15px; */
 }
 
 .more {
@@ -148,6 +169,13 @@ h1#title {
   text-align: center;
 }
 
+input#query {
+  outline: none;
+  border: 0;
+  padding: 1px;
+  line-height: 150%;
+}
+
 /* modal */
 
 .modal {
@@ -161,6 +189,7 @@ h1#title {
 }
 
 .modal-main {
+  color: rgba(7, 7, 7, 0.842);
   position: fixed;
   background: #f0b000;
   padding: 4px 4px 8px 4px;

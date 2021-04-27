@@ -45,7 +45,8 @@ class Poster extends React.Component {
   render() {
     if (this.state.posterUrl === '') {
       return (
-        <img className='poster' src='../img/oscar.jpg'></img>
+        // <img className='poster' src='../img/oscar.jpg'></img>
+        <img className='poster poster-loading' src='../img/spinner.gif'></img>
       )
     }
     return (
@@ -70,3 +71,5 @@ export default Poster;
 //     )
 //   }
 // };
+
+// https://miro.medium.com/max/880/0*H3jZONKqRuAAeHnG.jpg

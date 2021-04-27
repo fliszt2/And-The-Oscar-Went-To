@@ -119,6 +119,10 @@ img.poster {
   cursor: pointer;
 }
 
+img.poster-loading {
+  object-fit: contain;
+}
+
 h1#title {
   cursor: pointer;
 }

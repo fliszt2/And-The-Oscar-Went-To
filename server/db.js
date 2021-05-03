@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const yearData = require('./yearData.js');
 const api = require('./api.js');
+require('dotenv').config();
 
-mongoose.connect('mongodb://localhost:27017/mvp', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/mvp', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });

@@ -7,7 +7,8 @@ const config = require('../config.js');
 const api = require('./api.js');
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
+// const port = 3001;
 
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/../client/public'));

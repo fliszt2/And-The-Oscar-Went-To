@@ -89,10 +89,21 @@ app.listen(port, () => console.log(`Server is listening at: ${port}`));
 //     console.log('err.response.data:', err.response.data);
 //   });
 
+
+// heroku config:set PORT=8080
 // process.env.PORT
 // PORT = 8080
 // NYTIMESTOKEN = yEpXbjaRANSdVXSvBFGEsk3gWHHPNtxm
-
+// MONGODBURI = '';
 // RAPIDAPIKEY = '0631013508mshb7db09988561e92p1221c9jsn0866d669fabd';
 // OMDBAPIKEY = 'ff4c4415';
 // IMDBID = 'tt3896198';
+
+// sample: heroku config:set MONGODB_URI="mongodb+srv://yourUsername:yourPassword@yourClusterName.n9z04.mongodb.net/sample_mflix?retryWrites=true&w=majority"
+
+// heroku config:set MONGODB_URI="mongodb+srv://bob-kelly:aRsyHDWPjc0z8RQW@cluster0.euc8x.mongodb.net/mvp"
+
+
+// mongo "mongodb+srv://cluster0.euc8x.mongodb.net/mvp" --username bob-kelly
+// atlas password: aRsyHDWPjc0z8RQW
+// db: mvp, collections: oscars

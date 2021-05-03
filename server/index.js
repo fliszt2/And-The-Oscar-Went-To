@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const db = require('./db.js');
 const config = require('../config.js');
 const api = require('./api.js');
+require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3001;

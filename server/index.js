@@ -9,6 +9,7 @@ const api = require('./api.js');
 
 const app = express();
 const port = PORT || 3001;
+console.log({ port });
 // const port = process.env.PORT || 3001;
 // const port = 3001;
 

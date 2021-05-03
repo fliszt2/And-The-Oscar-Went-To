@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 const yearData = require('./yearData.js');
 const api = require('./api.js');
-require('dotenv').config();
+// require('dotenv').config();
 
-const mongodbURI = process.env.MONGODB_URI;
+const mongodbURI = MONGODB_URI;
+// const mongodbURI = process.env.MONGODB_URI;
 
 mongoose.connect(mongodbURI || 'mongodb://localhost:27017/mvp', {
   useNewUrlParser: true,

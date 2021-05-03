@@ -1,11 +1,16 @@
 const axios = require('axios');
 // const config = require('../config.js');
-require('dotenv').config();
+// require('dotenv').config();
 
-const nyTimesToken = process.env.NYTIMESTOKEN;
-const imdbId = process.env.IMDBID;
-const omdbApiKey = process.env.OMDBAPIKEY;
-const rapidApiKey = process.env.RAPIDAPIKEY;
+
+const nyTimesToken = NYTIMESTOKEN;
+const imdbId = IMDBID;
+const omdbApiKey = OMDBAPIKEY;
+const rapidApiKey = RAPIDAPIKEY;
+// const nyTimesToken = process.env.NYTIMESTOKEN;
+// const imdbId = process.env.IMDBID;
+// const omdbApiKey = process.env.OMDBAPIKEY;
+// const rapidApiKey = process.env.RAPIDAPIKEY;
 
 module.exports.getReview = (year, title, cb) => {
   var formattedTitle = title.toLowerCase().split(' ').join('+');

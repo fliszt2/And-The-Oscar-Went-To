@@ -1,7 +1,8 @@
 const axios = require('axios');
 // const config = require('../config.js');
-require('dotenv').config();
-const rapidApiKey = process.env.RAPIDAPIKEY;
+// require('dotenv').config();
+const rapidApiKey = RAPIDAPIKEY;
+// const rapidApiKey = process.env.RAPIDAPIKEY;
 
 var getPoster = (info, cb) => {
   var query = `https://movie-database-imdb-alternative.p.rapidapi.com/?s=${info[0]}&page="1"&r="json"`;

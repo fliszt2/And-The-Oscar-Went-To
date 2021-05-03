@@ -8,9 +8,9 @@ const api = require('./api.js');
 // require('dotenv').config();
 
 const app = express();
-const port = PORT || 3001;
+// const port = PORT || 3001;
+const port = process.env.PORT || 3001;
 console.log({ port });
-// const port = process.env.PORT || 3001;
 // const port = 3001;
 
 app.use(morgan('dev'));

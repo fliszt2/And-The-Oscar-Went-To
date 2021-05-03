@@ -90,11 +90,9 @@ app.listen(port, () => console.log(`Server is listening at: ${port}`));
 //   });
 
 
-// heroku config:set PORT=8080
 // process.env.PORT
 // PORT = 8080
 // NYTIMESTOKEN = yEpXbjaRANSdVXSvBFGEsk3gWHHPNtxm
-// MONGODBURI = '';
 // RAPIDAPIKEY = '0631013508mshb7db09988561e92p1221c9jsn0866d669fabd';
 // OMDBAPIKEY = 'ff4c4415';
 // IMDBID = 'tt3896198';
@@ -107,3 +105,11 @@ app.listen(port, () => console.log(`Server is listening at: ${port}`));
 // mongo "mongodb+srv://cluster0.euc8x.mongodb.net/mvp" --username bob-kelly
 // atlas password: aRsyHDWPjc0z8RQW
 // db: mvp, collections: oscars
+
+
+// heroku config:set PORT=8080
+// heroku config:set NYTIMESTOKEN=yEpXbjaRANSdVXSvBFGEsk3gWHHPNtxm
+// heroku config:set RAPIDAPIKEY=0631013508mshb7db09988561e92p1221c9jsn0866d669fabd
+// heroku config:set OMDBAPIKEY=ff4c4415
+// heroku config:set IMDBID=tt3896198
+// heroku config:set MONGODB_URI="mongodb+srv://bob-kelly:aRsyHDWPjc0z8RQW@cluster0.euc8x.mongodb.net/mvp"

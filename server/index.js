@@ -14,7 +14,8 @@ console.log({ port });
 // const port = 3001;
 
 app.use(morgan('dev'));
-app.use(express.static(__dirname + '/../client/public'));
+// app.use(express.static(__dirname + '/../client/public'));
+app.use(express.static('/app/client/public'));
 app.use(bodyParser.json());
 
 // app.get('/movies/:year', (req, res) => {

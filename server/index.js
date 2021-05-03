@@ -65,8 +65,8 @@ app.get('/info/:title', (req, res) => {
 //   res.sendStatus(200);
 // });
 
-app.listen(port, () => console.log(`Server is listening at: ${port}`));
-// app.listen(port, '0.0.0.0', () => console.log(`Server is listening at: ${port}`));
+// app.listen(port, () => console.log(`Server is listening at: ${port}`));
+app.listen(port, '0.0.0.0', () => console.log(`Server is listening at: ${port}`));
 
 // db.findYear('2007 (80th)');
 

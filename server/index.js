@@ -113,3 +113,10 @@ app.listen(port, () => console.log(`Server is listening at: ${port}`));
 // heroku config:set OMDBAPIKEY=ff4c4415
 // heroku config:set IMDBID=tt3896198
 // heroku config:set MONGODB_URI="mongodb+srv://bob-kelly:aRsyHDWPjc0z8RQW@cluster0.euc8x.mongodb.net/mvp"
+
+// /Users/robertkelly/dropbox/_repos/_immersive/_mvp/_resources/oscars.json
+
+// mongoexport --collection=oscars --db=mvp --out=/Users/robertkelly/dropbox/_repos/_immersive/_mvp/_resources/oscars.json
+// mongoimport "mongodb+srv://bob-kelly:aRsyHDWPjc0z8RQW@cluster0.euc8x.mongodb.net/mvp" /Users/robertkelly/dropbox/_repos/_immersive/_mvp/_resources/oscars.json
+
+// mongoimport "mongodb+srv://bob-kelly:aRsyHDWPjc0z8RQW@cluster0.euc8x.mongodb.net/mvp" --db=mvp --collection=oscars --file=/Users/robertkelly/dropbox/_repos/_immersive/_mvp/_resources/oscars.json

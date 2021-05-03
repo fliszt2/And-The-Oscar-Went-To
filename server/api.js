@@ -1,9 +1,15 @@
 const axios = require('axios');
-const config = require('../config.js');
+// const config = require('../config.js');
+require('dotenv').config();
+
+const nyTimesToken = process.env.NYTIMESTOKEN;
+const imdbId = process.env.IMDBID;
+const omdbApiKey = process.env.OMDBAPIKEY;
+const rapidApiKey = process.env.RAPIDAPIKEY;
 
 module.exports.getReview = (year, title, cb) => {
   var formattedTitle = title.toLowerCase().split(' ').join('+');
-  var query = `https://api.nytimes.com/svc/movies/v2//reviews/search.json?query=${formattedTitle}&opening-date=${Number(year) - 1}-01-01:${Number(year) + 1}-01-01&api-key=${config.nytimesToken}`;
+  var query = `https://api.nytimes.com/svc/movies/v2//reviews/search.json?query=${formattedTitle}&opening-date=${Number(year) - 1}-01-01:${Number(year) + 1}-01-01&api-key=${nyTimesToken}`;
   // console.log('query:', query);
   axios.get(query)
     .then((data) => {
@@ -17,7 +23,7 @@ module.exports.getReview = (year, title, cb) => {
 
 module.exports.getSummary = (title, cb) => {
   var formattedTitle = title.toLowerCase().split(' ').join('+');
-  var query = `http://www.omdbapi.com/?i=${config.imdbId}&apikey=${config.omdbApiKey}&type=movie&plot=short&r=json&t=${formattedTitle}`;
+  var query = `http://www.omdbapi.com/?i=${imdbId}&apikey=${omdbApiKey}&type=movie&plot=short&r=json&t=${formattedTitle}`;
   axios.get(query)
     .then((info) => {
       // if "Response" === "True"
@@ -31,7 +37,7 @@ module.exports.getPoster = (info, cb) => {
   // console.log('query:', query);
   var options = {
     headers: {
-      'x-rapidapi-key': config.rapidApiKey,
+      'x-rapidapi-key': rapidApiKey,
       'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com',
       'useQueryString': true
     }

@@ -3,7 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const db = require('./db.js');
-const config = require('../config.js');
+// const config = require('../config.js');
 const api = require('./api.js');
 require('dotenv').config();
 
@@ -62,7 +62,7 @@ app.get('/info/:title', (req, res) => {
 //   res.sendStatus(200);
 // });
 
-app.listen(port, () => console.log(`Server is listening at ${config.host}:${port}`));
+app.listen(port, () => console.log(`Server is listening at: ${port}`));
 
 // db.findYear('2007 (80th)');
 
@@ -88,3 +88,11 @@ app.listen(port, () => console.log(`Server is listening at ${config.host}:${port
 //   .catch((err) => {
 //     console.log('err.response.data:', err.response.data);
 //   });
+
+// process.env.PORT
+// PORT = 8080
+// NYTIMESTOKEN = yEpXbjaRANSdVXSvBFGEsk3gWHHPNtxm
+
+// RAPIDAPIKEY = '0631013508mshb7db09988561e92p1221c9jsn0866d669fabd';
+// OMDBAPIKEY = 'ff4c4415';
+// IMDBID = 'tt3896198';
